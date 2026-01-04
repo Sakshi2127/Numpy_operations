@@ -1,0 +1,94 @@
+import numpy as np
+
+print("NUMPY PRACTICE PROJECT\n")
+
+# 1. Matrix multiplication
+a = np.array([[1, 2], [3, 4]])
+b = np.array([[5, 6], [7, 8]])
+print("Matrix Multiplication:")
+print(np.dot(a, b), "\n")
+
+# 2. String operations
+arr_str = np.array(["numpy", "practice", "project"])
+print("Uppercase:", np.char.upper(arr_str))
+print("Lowercase:", np.char.lower(arr_str))
+print("Capitalize:", np.char.capitalize(arr_str))
+print("Title case:", np.char.title(arr_str))
+print("Swapcase:", np.char.swapcase(arr_str))
+print("String multiply:", np.char.multiply(arr_str, 2), "\n")
+
+# 3. Get row numbers where value is greater than specified value
+arr = np.array([[10, 20, 30], [5, 6, 7], [40, 50, 60]])
+rows = np.where(arr.max(axis=1) > 25)
+print("Rows having value > 25:", rows, "\n")
+
+# 4. Remove rows containing null values
+arr_null = np.array([[1, 2, np.nan], [4, 5, 6], [np.nan, np.nan, np.nan]])
+cleaned = arr_null[~np.isnan(arr_null).any(axis=1)]
+print("Array after removing null rows:")
+print(cleaned, "\n")
+
+# 5. Minimum value along rows
+print("Minimum value along rows:", arr.min(axis=1), "\n")
+
+# 6. Fill diagonal values
+diag_arr = np.zeros((4, 4))
+np.fill_diagonal(diag_arr, 9)
+print("Diagonal filled array:")
+print(diag_arr, "\n")
+
+# 7. Check number present & replace negative values
+num_arr = np.array([5, -2, 10, -8, 3])
+print("Is 10 present?", 10 in num_arr)
+num_arr[num_arr < 0] = 8
+print("After replacing negative values:", num_arr, "\n")
+
+# 8. Reverse rows of 4x4 random array
+rand_arr = np.random.rand(4, 4)
+print("Original array:")
+print(rand_arr)
+print("Reversed array:")
+print(rand_arr[::-1], "\n")
+
+# 9. Padding
+pad_arr = np.array([1, 2, 3])
+print("Padded array:", np.pad(pad_arr, (2, 2)), "\n")
+
+# 10. Sin and Cos values
+angles = np.array([0, np.pi/2, np.pi])
+print("Sin values:", np.sin(angles))
+print("Cos values:", np.cos(angles), "\n")
+
+# 11. Remove single dimension entries
+sq = np.array([[[5]]])
+print("Squeezed array:", np.squeeze(sq), "\n")
+
+# 12. Compare two arrays
+x = np.array([1, 2, 3])
+y = np.array([1, 4, 3])
+print("Array comparison:", x == y, "\n")
+
+# 13. Stack two arrays
+print("Vertical stack:")
+print(np.vstack((x, y)))
+print("Horizontal stack:")
+print(np.hstack((x, y)), "\n")
+
+# 14. Delete second column and insert new column
+col_arr = np.array([[1, 2, 3], [4, 5, 6]])
+col_arr = np.delete(col_arr, 1, axis=1)
+col_arr = np.insert(col_arr, 1, [9, 9], axis=1)
+print("After deleting and inserting column:")
+print(col_arr, "\n")
+
+# 15. Array of 10 zeros, 10 ones, 10 fives
+final_arr = np.concatenate((np.zeros(10), np.ones(10), np.full(10, 5)))
+print("Zeros, Ones and Fives:")
+print(final_arr, "\n")
+
+# 16. Random sequence without hardcoding
+print("Random sequence:", np.random.randint(1, 100, 10), "\n")
+
+# 17. Memory size of array
+mem_arr = np.array([1, 7, 13, 105])
+print("Memory size (bytes):", mem_arr.nbytes)
